@@ -38,7 +38,7 @@ void processMatrix() {
                 }
             }
         }
-        if (count % 2 == 0 && c > 0) {
+        if (count % 2 == 0 && count > 0) {
             for (int col = 0; col < cols; col++) {
                 if (matrix[col][row] == maxElement) {
                     matrix[col][row] = 0;
