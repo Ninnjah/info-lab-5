@@ -1,11 +1,11 @@
 ﻿#include <iostream>
 using namespace std;
 
-const int N = 10;
-const int M = 10;
+int rows, cols;
+int matrix[10][10];
 
 
-void printMatrix(int matrix[N][M], int cols, int rows) {
+void printMatrix() {
     printf("Текущее состояние матрицы:\n");
     for (int col = 0; col < cols; col++){
         for (int row = 0; row < rows; row++) {
@@ -16,7 +16,7 @@ void printMatrix(int matrix[N][M], int cols, int rows) {
 }
 
 
-void loadMatrix(int matrix[N][M], int cols, int rows) {
+void loadMatrix() {
     for (int col = 0; col < cols; col++) {
         printf("Введите %d строку:\n", col+1);
         for (int row = 0; row < rows; row++) {
@@ -26,7 +26,7 @@ void loadMatrix(int matrix[N][M], int cols, int rows) {
 }
 
 
-void processMatrix(int matrix[N][M], int cols, int rows) {
+void processMatrix() {
     for (int row = 0; row < rows; row++) {
         int maxElement = 0;
         int count = 0;
@@ -49,23 +49,20 @@ void processMatrix(int matrix[N][M], int cols, int rows) {
 }
 
 
-void inputArraySize(int *cols, int *rows) {
+void inputArraySize() {
     printf("Введите длину и ширину массива через пробел: ");
-    scanf("%d %d", cols, rows);
+    scanf("%d %d", &cols, &rows);
 }
 
 
 int main() {
     setlocale(LC_ALL, "RU");
 
-    int matrix[N][M];
-    int ROWS, COLS;
-    inputArraySize(&ROWS, &COLS);
-
-    loadMatrix(matrix, ROWS, COLS);
-    printMatrix(matrix, ROWS, COLS);
-    processMatrix(matrix, ROWS, COLS);
-    printMatrix(matrix, ROWS, COLS);
+    inputArraySize();
+    loadMatrix();
+    printMatrix();
+    processMatrix();
+    printMatrix();
 
     return 0;
 }
